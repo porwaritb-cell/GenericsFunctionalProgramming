@@ -44,8 +44,13 @@ public class ProductAnalytics {
      * ตรวจสอบว่ามีสินค้าที่หมดสต็อก (stock = 0) หรือไม่
      */
     public boolean hasProductOutOfStock() {
+        /* 
             return productCatalog.stream()
             .filter(p -> p.stock() <= 0)
             .count() > 0;
+        */
+
+            return productCatalog.stream()
+            .anyMatch(p -> p.stock() == 0);
     }
 }
